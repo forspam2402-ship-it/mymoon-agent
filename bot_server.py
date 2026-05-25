@@ -32,7 +32,7 @@ def get_cv_advice(job: dict) -> str:
     title = job.get("title", "").lower()
     if any(x in link for x in ["hh.ru", "hh.uz"]):
         return CV_RU
-    elif any(x in link for x in ["linkedin", "remotive", "jobicy"]):
+    elif any(x in link for x in ["linkedin", "remotive", "jobicy", "jsearch"]):
         return CV_EN
     elif any(x in title for x in ["ташкент", "узбекистан", "москва", "россия"]):
         return CV_RU
@@ -68,7 +68,9 @@ Telegram: {CANDIDATE_TELEGRAM}
 - Контакты в конце: {CANDIDATE_EMAIL} / Telegram: {CANDIDATE_TELEGRAM}
 - Подпись: {CANDIDATE_NAME_RU} (если RU) или {CANDIDATE_NAME_EN} (если EN)"""}]
         )
-        return msg.content[0].text
+        letter = msg.content[0].text
+        letter = letter.replace("`", "'")
+        return letter
     except Exception as e:
         return f"Ошибка генерации: {e}"
 
@@ -102,10 +104,12 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not job:
             await query.edit_message_text("Вакансия не найдена или уже обработана.")
             return
+
         job["approved_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
         approved = load_approved()
         approved.append(job)
         save_approved(approved)
+
         row = job.get("sheet_row") or job.get("row")
         if row:
             try:
@@ -113,26 +117,22 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 update_status(row, "Sent")
             except Exception as e:
                 print(f"  Sheets ошибка: {e}")
+
         remove_pending_job(job_id)
-        await query.edit_message_text("Одобрено! Генерирую письмо...")
+        await query.edit_message_text("✅ Одобрено! Генерирую письмо...")
+
         letter = generate_cover_letter(job)
-        cv_advice = get_cv_advice(job)
-        text = (
-            f"Вакансия: {job.get('title')}\n"
-            f"Компания: {job.get('company')}\n"
-            f"Ссылка: {job.get('link', 'нет')}\n\n"
-            f"CV: {cv_advice}\n\n"
-            f"Сопроводительное письмо:\n"
-            f"```\n{letter}\n```"
-        )
+
+        keyboard = [[
+            InlineKeyboardButton("🔗 Открыть вакансию", url=job.get("link", "https://hh.ru"))
+        ]]
+
         await context.bot.send_message(
             chat_id=query.message.chat_id,
-            text=text,
-            parse_mode="Markdown"
+            text=f"```\n{letter}\n```",
+            parse_mode="Markdown",
+            reply_markup=InlineKeyboardMarkup(keyboard)
         )
-
-    elif data.startswith("skip_cv_"):
-        await query.edit_message_text("Понял, CV не отправляем.")
 
     elif data.startswith("skip_"):
         job_id = data.replace("skip_", "")
@@ -146,7 +146,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             except Exception as e:
                 print(f"  Sheets ошибка: {e}")
         remove_pending_job(job_id)
-        await query.edit_message_text(f"Отклонено: {title}")
+        await query.edit_message_text(f"❌ Отклонено: {title}")
 
 def main():
     app = Application.builder().token(TELEGRAM_TOKEN).build()
