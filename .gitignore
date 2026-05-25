@@ -1,0 +1,65 @@
+﻿# === SECRETS & CONFIG ===
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+service_account.json
+
+# === RUNTIME STATE (seen jobs, tokens) ===
+seen_hh.json
+seen_telegram.json
+seen_international.json
+seen_careers.json
+*.session
+*.session-journal
+
+# === PROFILE (resume files — may contain PII) ===
+profile/
+!profile/.gitkeep
+
+# === PYTHON ===
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+*.egg
+pip-log.txt
+
+# === LOGS ===
+*.log
+logs/
+*.txt
+!requirements.txt
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# === GOOGLE SHEETS TOKEN ===
+token.json
+credentials.json
+
+# === SENSITIVE DATA ===
+google_key.json
+pending_jobs.json
+approved_jobs.json
+fullscan_results.json
+vacancies.xlsx
+*.json
+!.env.example 
