@@ -100,7 +100,7 @@ def analyze_match(job: dict, profile: str) -> tuple:
         message = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=500,
-            messages=[{"role": "user", "content": f"""Оцени насколько эта вакансия подходит кандидату.
+            messages=[{"role": "user", "content": f"""Оцени насколько эта вакансия подходит кандидату на позиции Senior Project Manager или Program Manager.
 
 ПРОФИЛЬ КАНДИДАТА:
 {profile[:4000]}
@@ -110,6 +110,10 @@ def analyze_match(job: dict, profile: str) -> tuple:
 Компания: {job.get('company')}
 Почему найдена: {job.get('reason', '')}
 Ссылка: {job.get('link')}
+
+Сопоставь обязанности и уровень вакансии с опытом кандидата в управлении
+проектами и программами. Не приписывай кандидату отсутствующие в профиле
+навыки, опыт или достижения.
 
 Верни JSON:
 {{"score": 1-10, "comment": "краткий комментарий почему подходит или нет (2-3 предложения)"}}

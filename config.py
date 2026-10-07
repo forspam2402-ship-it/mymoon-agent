@@ -30,27 +30,35 @@ CANDIDATE_SKILLS = os.getenv("CANDIDATE_SKILLS")
 CANDIDATE_LANGUAGES = os.getenv("CANDIDATE_LANGUAGES")
 
 SEARCH_CRITERIA = """
-Я ищу работу на позиции руководителя IT.
+Я ищу работу на позициях Senior Project Manager и Program Manager.
 
-ПОДХОДИТ если в названии есть: CTO, технический директор, IT Director,
-Head of IT, Head of Engineering, VP Engineering, Deputy CTO,
-руководитель IT, директор по технологиям, Chief Technology.
+ПОДХОДИТ, если название должности соответствует одной из этих ролей или её
+прямому эквиваленту: Senior Project Manager, Project Manager, Lead Project
+Manager, Program Manager, Programme Manager, Senior Program Manager,
+Senior Programme Manager, Project Director, Program Director, Programme
+Director, руководитель проектов, старший/ведущий менеджер проектов,
+менеджер проектов, руководитель программы/программ, менеджер программы/
+программ, директор проектов/программы/программ.
 
-НЕ ПОДХОДИТ: разработчик любого уровня, тестировщик, аналитик,
-менеджер по продажам, HR, маркетинг.
+НЕ ПОДХОДИТ: IT-директор, CTO/CIO, руководитель разработки/инженерии,
+Product Manager, координатор проектов, ассистент, стажёр и junior-позиции.
 
-Фильтруй ТОЛЬКО по названию должности. Сфера компании не важна.
+Оценивай соответствие по названию должности; если в объявлении есть описание,
+учитывай обязанности и требуемый уровень опыта. Сфера компании не важна.
 
 ГЕОГРАФИЯ: Узбекистан, Армения, Россия, ОАЭ, Европа, Казахстан, удалённо (remote).
 США, Канада, Австралия — НЕ ПОДХОДИТ если не указан remote.
 """
 
 JOB_SITES = [
-    "https://hh.ru/search/vacancy?text=CTO&industry=7",
-    "https://hh.ru/search/vacancy?text=IT+Director&industry=7",
-    "https://hh.ru/search/vacancy?text=директор+по+IT",
-    "https://hh.ru/search/vacancy?text=руководитель+IT+департамента",
-    "https://hh.ru/search/vacancy?text=Head+of+IT",
-    "https://hh.uz/search/vacancy?text=IT+Director",
-    "https://hh.uz/search/vacancy?text=CTO",
+    "https://hh.ru/search/vacancy?text=Senior+Project+Manager",
+    "https://hh.ru/search/vacancy?text=Project+Manager",
+    "https://hh.ru/search/vacancy?text=Program+Manager",
+    "https://hh.ru/search/vacancy?text=Programme+Manager",
+    "https://hh.ru/search/vacancy?text=%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2",
+    "https://hh.ru/search/vacancy?text=%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B",
+    "https://hh.uz/search/vacancy?text=Senior+Project+Manager",
+    "https://hh.uz/search/vacancy?text=Program+Manager",
+    "https://hh.uz/search/vacancy?text=%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2",
+    "https://hh.uz/search/vacancy?text=%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B",
 ]

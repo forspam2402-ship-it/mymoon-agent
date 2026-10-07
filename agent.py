@@ -10,13 +10,14 @@ from config import *
 SEEN_FILE = "C:\\jobagent\\seen_hh.json"
 
 KEYWORDS = [
-    "cto", "cio", "технический директор", "it director", "it директор",
-    "директор по it", "директор по ит", "директор по информационным",
-    "руководитель it", "руководитель ит", "head of it", "head of engineering",
-    "head of tech", "head of development", "vp engineering", "chief technology",
-    "chief information", "deputy cto", "заместитель директора по it",
-    "заместитель директора по ит", "заместитель cto", "начальник отдела ит",
-    "начальник отдела it", "директор департамента ит", "директор департамента it",
+    "senior project manager", "project manager", "lead project manager",
+    "program manager", "programme manager", "senior program manager",
+    "senior programme manager", "project director", "program director",
+    "programme director", "руководитель проектов", "менеджер проектов",
+    "старший менеджер проектов", "ведущий менеджер проектов",
+    "руководитель программы", "руководитель программ", "менеджер программы",
+    "менеджер программ", "директор проектов", "директор программы",
+    "директор программ",
 ]
 
 def load_seen() -> set:

@@ -1,6 +1,6 @@
 # 🌙 Mymoon Agent — Автоматический поиск работы
 
-Персональный AI-агент для автоматического поиска CTO / IT Director / Head of IT позиций с оценкой вакансий, генерацией cover letter и управлением через Telegram.
+Персональный AI-агент для автоматического поиска вакансий Senior Project Manager и Program Manager с оценкой вакансий, генерацией cover letter и управлением через Telegram.
 
 ---
 

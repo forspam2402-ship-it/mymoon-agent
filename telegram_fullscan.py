@@ -23,10 +23,14 @@ CHANNELS = [
 ]
 
 KEYWORDS = [
-    "cto", "cio", "vp engineering", "head of it", "head of engineering",
-    "it director", "технический директор", "директор по it", "директор по технологиям",
-    "руководитель it", "руководитель отдела it", "chief technology",
-    "deputy cto", "вице-президент", "it manager", "head of tech",
+    "senior project manager", "project manager", "lead project manager",
+    "program manager", "programme manager", "senior program manager",
+    "senior programme manager", "project director", "program director",
+    "programme director", "руководитель проектов", "менеджер проектов",
+    "старший менеджер проектов", "ведущий менеджер проектов",
+    "руководитель программы", "руководитель программ", "менеджер программы",
+    "менеджер программ", "директор проектов", "директор программы",
+    "директор программ",
 ]
 
 def load_seen() -> set:
