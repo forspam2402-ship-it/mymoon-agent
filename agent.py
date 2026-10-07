@@ -10,7 +10,9 @@ from config import *
 SEEN_FILE = "C:\\jobagent\\seen_hh.json"
 
 KEYWORDS = [
-    "senior project manager", "project manager", "lead project manager",
+    "senior project manager", "project manager", "technical project manager",
+    "it project manager", "lead project manager", "delivery manager",
+    "project delivery manager",
     "program manager", "programme manager", "senior program manager",
     "senior programme manager", "project director", "program director",
     "programme director", "руководитель проектов", "менеджер проектов",

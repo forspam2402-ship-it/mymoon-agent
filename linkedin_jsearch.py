@@ -28,9 +28,9 @@ SEEN_FILE = Path("seen_international.json")
 # ── Экономный режим для Free плана RapidAPI (200 req/мес) ────────────────────
 # 3 запроса × 3 локации × 1 стр = 9 req/прогон × 2/день × 10 рабочих дней = 180 req
 SEARCH_QUERIES = [
-    "Senior Project Manager Project Manager",
-    "Program Manager Senior Program Manager",
-    "Programme Manager Project Director",
+    "Senior Project Manager Technical Project Manager",
+    "Program Manager Programme Manager",
+    "Project Delivery Manager Delivery Manager",
 ]
 
 LOCATIONS = [
@@ -51,10 +51,11 @@ EXCLUDE_KEYWORDS = [
 ]
 
 REQUIRED_KEYWORDS_ANY = [
-    "senior project manager", "project manager", "lead project manager",
-    "program manager", "programme manager", "senior program manager",
-    "senior programme manager", "project director", "program director",
-    "programme director",
+    "senior project manager", "project manager", "technical project manager",
+    "it project manager", "lead project manager", "program manager",
+    "programme manager", "senior program manager", "senior programme manager",
+    "project director", "program director", "programme director",
+    "delivery manager", "project delivery manager",
 ]
 
 
